@@ -1,5 +1,5 @@
 
-var stringToCompare = 'COMt ETENCUENTRAS';
+var stringToCompare = 'COM ETENCUENTRAS';
 
 console.time("findRecurring test");
 function findRecurring(word) {
@@ -22,13 +22,13 @@ console.log('findRecurring', findRecurring(stringToCompare));
 console.timeEnd("findRecurring test");
 
 console.time("findRecurringRecursive test");
-function findRecurringRecursive(word, h1 = {}, n = 0) {
+function findRecurringRecursive(word, h1 = {}) {
     let words = word.toUpperCase().split('');
     if (h1[words[0]]) {
         return words[0];
     }
     h1[words[0]] = 1;
-    return findRecurringRecursive(words.slice(n + 1).join(''), h1)
+    return findRecurringRecursive(words.slice(1).join(''), h1)
 }
 console.log('findRecurringRecursive', findRecurringRecursive(stringToCompare));
 console.timeEnd("findRecurringRecursive test");
@@ -41,7 +41,7 @@ console.timeEnd("findRecurringRecursive test");
 
 
 console.time("findRecurringMemoization test");
-function findRecurringMemoization(word, h1 = {}, n = 0, memo) {
+function findRecurringMemoization(word, h1 = {}, memo) {
 
     memo = memo || {};
     if (memo[word]) return memo[word];
@@ -51,7 +51,7 @@ function findRecurringMemoization(word, h1 = {}, n = 0, memo) {
         return words[0];
     }
     h1[words[0]] = 1;
-    return memo[word] = findRecurringMemoization(words.slice(n + 1).join(''), h1, n, memo)
+    return memo[word] = findRecurringMemoization(words.slice(1).join(''), h1, memo)
 }
 console.log('findRecurringMemoization', findRecurringMemoization(stringToCompare));
 console.timeEnd("findRecurringMemoization test");
