@@ -22,7 +22,7 @@ console.log(
 
 //     for(i = 0, numSteps)
 // }
-
+var numero = 6
 //0,1,1,2,3,5,8,13
 // f(n) = f(n-1) + f(n-2)
 
@@ -40,18 +40,18 @@ function fibonacci(num) {
 }
 
 console.log('fibonacci', 
-    fibonacci(6)
+    fibonacci(numero)
 );
 
 // Recursive
 function fibonacciRecursive(num) {
     if (num <= 1) return 1;
-     console.log(num);
+     //console.log(num);
     return fibonacciRecursive(num - 1) + fibonacciRecursive(num - 2);
 }
 
 console.log('fibonacciRecursive',
-    fibonacciRecursive(7)
+    fibonacciRecursive(numero)
 );
 
 
@@ -67,6 +67,7 @@ function fibonacciMemo(num, memo) {
 }
 
 console.log(
-    fibonacciMemo(5)
+    'fibonacciMemo',
+    fibonacciMemo(numero)
 );
 
